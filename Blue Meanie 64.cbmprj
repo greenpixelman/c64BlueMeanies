@@ -20,7 +20,7 @@
     <AutoLaunchName>Blue Meanie 64.prg</AutoLaunchName>
     <NoSingleFileBuild>False</NoSingleFileBuild>
     <CreatedWithVersion>CBM prg Studio 4.5.0</CreatedWithVersion>
-    <HasGitRepo>False</HasGitRepo>
+    <HasGitRepo>True</HasGitRepo>
     <OutputBinDir />
     <GitIgnoreList />
     <UsingKickAssembler>False</UsingKickAssembler>
@@ -49,7 +49,7 @@
         <PostBuildCommands />
     </BuildEvents>
     <BuildList>
-        <FileName>LoadScreenRow.pbas</FileName>
+        <FileName>86\Basic Files\LoadScreenRow.pbas</FileName>
     </BuildList>
     <DetermineBuildOrder>0</DetermineBuildOrder>
     <PaddingByte>0</PaddingByte>
@@ -61,7 +61,7 @@
     <ExtendedBASIC>False</ExtendedBASIC>
     <SourceFiles>
         <SourceFile>
-            <Name>\Chars.cst</Name>
+            <Name>\Character Sets\Chars.cst</Name>
             <PrgName />
             <FileType>6</FileType>
             <IncludeInBuild>True</IncludeInBuild>
@@ -72,7 +72,7 @@
             <FileOpen>False</FileOpen>
         </SourceFile>
         <SourceFile>
-            <Name>\Sprites.spt</Name>
+            <Name>\Sprite Data\Sprites.spt</Name>
             <PrgName />
             <FileType>7</FileType>
             <IncludeInBuild>True</IncludeInBuild>
@@ -83,7 +83,7 @@
             <FileOpen>False</FileOpen>
         </SourceFile>
         <SourceFile>
-            <Name>\TitleScreen.sdd</Name>
+            <Name>\Screen Designs\TitleScreen.sdd</Name>
             <PrgName />
             <FileType>9</FileType>
             <IncludeInBuild>True</IncludeInBuild>
@@ -94,18 +94,7 @@
             <FileOpen>False</FileOpen>
         </SourceFile>
         <SourceFile>
-            <Name>\TitleScreen.sdd</Name>
-            <PrgName />
-            <FileType>9</FileType>
-            <IncludeInBuild>True</IncludeInBuild>
-            <Regions />
-            <Breakpoints />
-            <Bookmarks />
-            <Topmost>False</Topmost>
-            <FileOpen>False</FileOpen>
-        </SourceFile>
-        <SourceFile>
-            <Name>\Main1.pbas</Name>
+            <Name>\Basic Files\Main1.pbas</Name>
             <PrgName />
             <FileType>15</FileType>
             <IncludeInBuild>True</IncludeInBuild>
@@ -116,7 +105,7 @@
             <FileOpen>True</FileOpen>
         </SourceFile>
         <SourceFile>
-            <Name>\LoadScreenRow.pbas</Name>
+            <Name>\Basic Files\LoadScreenRow.pbas</Name>
             <PrgName />
             <FileType>15</FileType>
             <IncludeInBuild>True</IncludeInBuild>
