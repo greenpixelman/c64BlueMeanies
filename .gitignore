@@ -19,3 +19,4 @@ output/
 # Ignore other potentially unwanted files
 # Example: MacOS system files
 .DS_Store
+/bak
