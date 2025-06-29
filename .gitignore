@@ -1,0 +1,21 @@
+# Ignore CBM Prg Studio generated files
+*.prg 
+
+# Ignore build output directories
+build/
+output/
+
+# Ignore temporary and log files
+*.tmp
+*.log
+
+# Ignore IDE specific configuration files (adjust based on your setup)
+# Example for Visual Studio (often used with CBM Prg Studio)
+.vs/
+*.sln.DotSettings
+*.suo
+*.user
+
+# Ignore other potentially unwanted files
+# Example: MacOS system files
+.DS_Store

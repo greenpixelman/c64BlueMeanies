@@ -1,0 +1,55 @@
+
+@SHOW_TITLE
+
+REM --------------------BLUE MEANIES FROM OUTER SPACE 
+REM -------------------- PORT FROM VIC20
+REM
+REM SCREEN RAM = 1024 TO 2023
+REM 
+DIM row$(26)
+REM SCREEN 1 - 
+row$(1) = "{reverse on}{cyan}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}"
+row$(2) = "{reverse off}{reverse on}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}"
+row$(3) = "{reverse off}{reverse on}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}"
+row$(4) = "{reverse off}{reverse on}{sh space}{sh space}{sh space}{sh space}{black}{sh space}{sh space}{white}{sh space}{sh space}{red}{sh space}{sh space}{cyan}{sh space}{sh space}{purple}{sh space}{sh space}{green}{sh space}{sh space}{blue}{sh space}{sh space}{yellow}{sh space}{sh space}{black}{sh space}{sh space}{white}{sh space}{sh space}{red}{sh space}{sh space}{cyan}{sh space}{sh space}{purple}{sh space}{sh space}{green}{sh space}{sh space}{blue}{sh space}{sh space}{yellow}{sh space}{sh space}{cyan}{sh space}{sh space}{sh space}{sh space}"
+row$(5) = "{reverse off}{reverse on}{sh space}{sh space}{sh space}{sh space}{reverse off}  {white}{125}{reverse on}                          {reverse off}{125}  {reverse on}{cyan}{sh space}{sh space}{sh space}{sh space}"
+row$(6) = "{reverse off}{reverse on}{sh space}{sh space}{sh space}{sh space}{reverse off}{white}@@@@@@@@{reverse on}{blue}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{white}     {reverse off}{125}  {reverse on}{cyan}{sh space}{sh space}{sh space}{sh space}"
+row$(7) = "{reverse off}{reverse on}{sh space}{sh space}{sh space}{sh space}{reverse off}{white}@@@@@@@@{reverse on}{blue}{sh space}{sh space}blue meanies{sh space}{sh space}{white}     {reverse off}{125}  {reverse on}{cyan}{sh space}{sh space}{sh space}{sh space}"
+row$(8) = "{reverse off}{reverse on}{sh space}{sh space}{sh space}{sh space}{reverse off}{white}@@@@@@@@{reverse on}{blue}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{white}     {reverse off}{125}  {reverse on}{cyan}{sh space}{sh space}{sh space}{sh space}"
+row$(9) = "{reverse off}{reverse on}{sh space}{sh space}{sh space}{sh space}{reverse off}{white}@@@@@@@@{reverse on}{blue}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}from{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{white}     {reverse off}{125}  {reverse on}{cyan}{sh space}{sh space}{sh space}{sh space}"
+row$(10) = "{reverse off}{reverse on}{sh space}{sh space}{sh space}{sh space}{reverse off}{white}@@@@@@@@{reverse on}{blue}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{white}     {reverse off}{125}  {reverse on}{cyan}{sh space}{sh space}{sh space}{sh space}"
+row$(11) = "{reverse off}{reverse on}{sh space}{sh space}{sh space}{sh space}{reverse off}{white}@@@@@@@@{reverse on}{blue}{sh space}outer space 64{sh space}{white}     {reverse off}{125}  {reverse on}{cyan}{sh space}{sh space}{sh space}{sh space}"
+row$(12) = "{reverse off}{reverse on}{sh space}{sh space}{sh space}{sh space}{reverse off}{white}@@@@@@@@{reverse on}{blue}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{white}     {reverse off}{125}  {reverse on}{cyan}{sh space}{sh space}{sh space}{sh space}"
+row$(13) = "{reverse off}{reverse on}{sh space}{sh space}{sh space}{sh space}{reverse off}{white}@@@@@@@@{reverse on}                     {reverse off}{125}  {reverse on}{cyan}{sh space}{sh space}{sh space}{sh space}"
+row$(14) = "{reverse off}{reverse on}{sh space}{sh space}{sh space}{sh space}{reverse off}  {white}{125}{reverse on}                          {reverse off}{125}  {reverse on}{cyan}{sh space}{sh space}{sh space}{sh space}"
+row$(15) = "{reverse off}{reverse on}{sh space}{sh space}{sh space}{sh space}{reverse off}  {white}{125}{reverse on}     {reverse off}{blue}by green pixel man {reverse on}{white}  {reverse off}{125}  {reverse on}{cyan}{sh space}{sh space}{sh space}{sh space}"
+row$(16) = "{reverse off}{reverse on}{sh space}{sh space}{sh space}{sh space}{reverse off}  {white}{125}{reverse on}                          {reverse off}{125}  {reverse on}{cyan}{sh space}{sh space}{sh space}{sh space}"
+row$(17) = "{reverse off}{reverse on}{sh space}{sh space}{sh space}{sh space}{reverse off}  {reverse on}{white}{sh space}{sh space}{sh space}{reverse off}{blue}(vic20) by duane later{reverse on}{white}{sh space}{sh space}{sh space}{reverse off} {reverse on}{sh space}{cyan}{sh space}{sh space}{sh space}{sh space}"
+row$(18) = "{reverse off}{reverse on}{sh space}{sh space}{sh space}{sh space}{white}{sh space}{sh space}{sh space}  {sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{reverse off}{blue}(c) 1981 cbm,inc{reverse on}{white} {reverse off}{125}  {reverse on}{cyan}{sh space}{sh space}{sh space}{sh space}"
+row$(19) = "{reverse off}{reverse on}{sh space}{sh space}{sh space}{sh space}{reverse off}  {white}{125}{reverse on}                          {reverse off}{125}  {reverse on}{cyan}{sh space}{sh space}{sh space}{sh space}"
+row$(20) = "{reverse off}{reverse on}{sh space}{sh space}{sh space}{sh space}{reverse off}  {white}{cm z}{sh asterisk}{sh asterisk}{sh asterisk}{sh asterisk}{sh asterisk}{sh asterisk}{sh asterisk}{sh asterisk}{reverse on}{blue}hit a key{reverse off}{white}{sh asterisk}{sh asterisk}{sh asterisk}{sh asterisk}{sh asterisk}{sh asterisk}{sh asterisk}{sh asterisk}{sh asterisk}{cm x}  {reverse on}{cyan}{sh space}{sh space}{sh space}{sh space}"
+row$(21) = "{reverse off}{reverse on}{sh space}{sh space}{sh space}{sh space}{reverse off}                                {reverse on}{sh space}{sh space}{sh space}{sh space}"
+row$(22) = "{reverse off}{reverse on}{sh space}{sh space}{sh space}{sh space}{black}{sh space}{sh space}{white}{sh space}{sh space}{red}{sh space}{sh space}{cyan}{sh space}{sh space}{purple}{sh space}{sh space}{green}{sh space}{sh space}{blue}{sh space}{sh space}{yellow}{sh space}{sh space}{black}{sh space}{sh space}{white}{sh space}{sh space}{red}{sh space}{sh space}{cyan}{sh space}{sh space}{purple}{sh space}{sh space}{green}{sh space}{sh space}{blue}{sh space}{sh space}{yellow}{sh space}{sh space}{cyan}{sh space}{sh space}{sh space}{sh space}"
+row$(23) = "{reverse off}{reverse on}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}"
+row$(24) = "{reverse off}{reverse on}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}"
+row$(25) = "{reverse off}{reverse on}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}"
+row$(25) = "{reverse off}{reverse on}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}"
+
+POKE 53280,3:POKE 53281,1  : REM Set border=cyan, background=white
+POKE 53265,PEEK(53265) AND 239 : REM Turn off screen during load
+PRINT CHR$(147): REM CLEAR SCREEN
+FOR I=1 TO 25
+   PRINT row$(I);
+NEXT I
+POKE 53265,PEEK(53265) OR 16 : REM Turn screen back on
+REM
+S = 1024+999 : C = 55296+999
+POKE S, 224
+POKE C, 3
+REM
+REM
+@GETKEY
+GET A$
+IF A$="" THEN GOTO @GETKEY
+
+
