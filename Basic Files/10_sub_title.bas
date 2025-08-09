@@ -1,0 +1,50 @@
+!-- ****************************************
+!-- *      BLUE MEANIES - TITLE SCREEN
+!-- *  DISPLAYS GAME TITLE 
+!-- *     WAITS FOR PLAYER TO BEGIN GAME
+!-- ****************************************
+!--
+1000 REM DIM row$(26)
+1010 REM Setup all characters from the TitleScreen.sdd file
+1020 REM **************************************************
+1040 row$(1) = "{reverse on}{cyan}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}"
+1045 row$(2) = "{reverse off}{reverse on}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}"
+1050 row$(3) = "{reverse off}{reverse on}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}"
+1055 row$(4) = "{reverse off}{reverse on}{sh space}{sh space}{sh space}{sh space}{black}{sh space}{sh space}{white}{sh space}{sh space}{red}{sh space}{sh space}{cyan}{sh space}{sh space}{purple}{sh space}{sh space}{green}{sh space}{sh space}{blue}{sh space}{sh space}{yellow}{sh space}{sh space}{black}{sh space}{sh space}{white}{sh space}{sh space}{red}{sh space}{sh space}{cyan}{sh space}{sh space}{purple}{sh space}{sh space}{green}{sh space}{sh space}{blue}{sh space}{sh space}{yellow}{sh space}{sh space}{cyan}{sh space}{sh space}{sh space}{sh space}"
+1060 row$(5) = "{reverse off}{reverse on}{sh space}{sh space}{sh space}{sh space}{reverse off}  {white}{125}{reverse on}                          {reverse off}{125}  {reverse on}{cyan}{sh space}{sh space}{sh space}{sh space}"
+1065 row$(6) = "{reverse off}{reverse on}{sh space}{sh space}{sh space}{sh space}{reverse off}{white}@@@@@@@@{reverse on}{blue}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{white}     {reverse off}{125}  {reverse on}{cyan}{sh space}{sh space}{sh space}{sh space}"
+1070 row$(7) = "{reverse off}{reverse on}{sh space}{sh space}{sh space}{sh space}{reverse off}{white}@@@@@@@@{reverse on}{blue}{sh space}{sh space}blue meanies{sh space}{sh space}{white}     {reverse off}{125}  {reverse on}{cyan}{sh space}{sh space}{sh space}{sh space}"
+1075 row$(8) = "{reverse off}{reverse on}{sh space}{sh space}{sh space}{sh space}{reverse off}{white}@@@@@@@@{reverse on}{blue}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{white}     {reverse off}{125}  {reverse on}{cyan}{sh space}{sh space}{sh space}{sh space}"
+1080 row$(9) = "{reverse off}{reverse on}{sh space}{sh space}{sh space}{sh space}{reverse off}{white}@@@@@@@@{reverse on}{blue}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}from{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{white}     {reverse off}{125}  {reverse on}{cyan}{sh space}{sh space}{sh space}{sh space}"
+1085 row$(10) = "{reverse off}{reverse on}{sh space}{sh space}{sh space}{sh space}{reverse off}{white}@@@@@@@@{reverse on}{blue}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{white}     {reverse off}{125}  {reverse on}{cyan}{sh space}{sh space}{sh space}{sh space}"
+1090 row$(11) = "{reverse off}{reverse on}{sh space}{sh space}{sh space}{sh space}{reverse off}{white}@@@@@@@@{reverse on}{blue}{sh space}outer space 64{sh space}{white}     {reverse off}{125}  {reverse on}{cyan}{sh space}{sh space}{sh space}{sh space}"
+1095 row$(12) = "{reverse off}{reverse on}{sh space}{sh space}{sh space}{sh space}{reverse off}{white}@@@@@@@@{reverse on}{blue}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{white}     {reverse off}{125}  {reverse on}{cyan}{sh space}{sh space}{sh space}{sh space}"
+1100 row$(13) = "{reverse off}{reverse on}{sh space}{sh space}{sh space}{sh space}{reverse off}{white}@@@@@@@@{reverse on}                     {reverse off}{125}  {reverse on}{cyan}{sh space}{sh space}{sh space}{sh space}"
+1105 row$(14) = "{reverse off}{reverse on}{sh space}{sh space}{sh space}{sh space}{reverse off}  {white}{125}{reverse on}                          {reverse off}{125}  {reverse on}{cyan}{sh space}{sh space}{sh space}{sh space}"
+1110 row$(15) = "{reverse off}{reverse on}{sh space}{sh space}{sh space}{sh space}{reverse off}  {white}{125}{reverse on}     {reverse off}{blue}by green pixel man {reverse on}{white}  {reverse off}{125}  {reverse on}{cyan}{sh space}{sh space}{sh space}{sh space}"
+1115 row$(16) = "{reverse off}{reverse on}{sh space}{sh space}{sh space}{sh space}{reverse off}  {white}{125}{reverse on}                          {reverse off}{125}  {reverse on}{cyan}{sh space}{sh space}{sh space}{sh space}"
+1120 row$(17) = "{reverse off}{reverse on}{sh space}{sh space}{sh space}{sh space}{reverse off}  {reverse on}{white}{sh space}{sh space}{sh space}{reverse off}{blue}(vic20) by duane later{reverse on}{white}{sh space}{sh space}{sh space}{reverse off} {reverse on}{sh space}{cyan}{sh space}{sh space}{sh space}{sh space}"
+1125 row$(18) = "{reverse off}{reverse on}{sh space}{sh space}{sh space}{sh space}{white}{sh space}{sh space}{sh space}  {sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{reverse off}{blue}(c) 1981 cbm,inc{reverse on}{white} {reverse off}{125}  {reverse on}{cyan}{sh space}{sh space}{sh space}{sh space}"
+1130 row$(19) = "{reverse off}{reverse on}{sh space}{sh space}{sh space}{sh space}{reverse off}  {white}{125}{reverse on}                          {reverse off}{125}  {reverse on}{cyan}{sh space}{sh space}{sh space}{sh space}"
+1135 row$(20) = "{reverse off}{reverse on}{sh space}{sh space}{sh space}{sh space}{reverse off}  {white}{cm z}{sh asterisk}{sh asterisk}{sh asterisk}{sh asterisk}{sh asterisk}{sh asterisk}{sh asterisk}{sh asterisk}{blue}         {reverse off}{white}{sh asterisk}{sh asterisk}{sh asterisk}{sh asterisk}{sh asterisk}{sh asterisk}{sh asterisk}{sh asterisk}{sh asterisk}{cm x}  {reverse on}{cyan}{sh space}{sh space}{sh space}{sh space}"
+1140 row$(21) = "{reverse off}{reverse on}{sh space}{sh space}{sh space}{sh space}{reverse off}                                {reverse on}{sh space}{sh space}{sh space}{sh space}"
+1145 row$(22) = "{reverse off}{reverse on}{sh space}{sh space}{sh space}{sh space}{black}{sh space}{sh space}{white}{sh space}{sh space}{red}{sh space}{sh space}{cyan}{sh space}{sh space}{purple}{sh space}{sh space}{green}{sh space}{sh space}{blue}{sh space}{sh space}{yellow}{sh space}{sh space}{black}{sh space}{sh space}{white}{sh space}{sh space}{red}{sh space}{sh space}{cyan}{sh space}{sh space}{purple}{sh space}{sh space}{green}{sh space}{sh space}{blue}{sh space}{sh space}{yellow}{sh space}{sh space}{cyan}{sh space}{sh space}{sh space}{sh space}"
+1150 row$(23) = "{reverse off}{reverse on}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}"
+1155 row$(24) = "{reverse off}{reverse on}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}"
+1160 row$(25) = "{reverse off}{reverse on}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}"
+1165 row$(25) = "{reverse off}{reverse on}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}"
+1170 POKE 53280,3:POKE 53281,1  : REM Set border=cyan, background=white
+1172 REM **************** Turn off screen during loading
+1175 POKE 53265,PEEK(53265) AND 239
+1180 PRINT CHR$(147): REM CLEAR SCREEN
+1182 REM Loop the array to print screen
+1185 FOR I=1 TO 25
+1190    PRINT row$(I);
+1195 NEXT I
+1198 REM **************** Turn Screen back on
+1200 POKE 53265,PEEK(53265) OR 16
+1205 REM
+1210 S = 1024+999 : C = 55296+999
+1215 POKE S, 224
+1220 POKE C, 3
+1255 RETURN
