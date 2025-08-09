@@ -1,9 +1,12 @@
 
 @SHOW_TITLE
 
-REM --------------------BLUE MEANIES FROM OUTER SPACE 
-REM -------------------- PORT FROM VIC20
-REM
+!- *********************************************
+!- **** Test the title screen by PRINT to screen locations
+!-
+!-
+!-
+
 REM SCREEN RAM = 1024 TO 2023
 REM 
 DIM row$(26)
@@ -36,17 +39,19 @@ row$(25) = "{reverse off}{reverse on}{sh space}{sh space}{sh space}{sh space}{sh
 row$(25) = "{reverse off}{reverse on}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}"
 
 POKE 53280,3:POKE 53281,1  : REM Set border=cyan, background=white
-POKE 53265,PEEK(53265) AND 239 : REM Turn off screen during load
+REM ******* POKE 53265,PEEK(53265) AND 239 : REM Turn off screen during load
 PRINT CHR$(147): REM CLEAR SCREEN
 FOR I=1 TO 25
    PRINT row$(I);
 NEXT I
 POKE 53265,PEEK(53265) OR 16 : REM Turn screen back on
 REM
+REM *************************************
+REM *** Fix the last location ***
 S = 1024+999 : C = 55296+999
 POKE S, 224
 POKE C, 3
-REM
+REM *************************************
 REM
 @GETKEY
 GET A$

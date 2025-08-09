@@ -4,20 +4,20 @@
 <!-- Project Target : C64 -->
 <Project>
     <Target>2</Target>
-    <Executable>Blue Meanie 64.prg</Executable>
+    <Executable>bluemeanie64.prg</Executable>
     <StartAddress>2049</StartAddress>
-    <FilesGlobal>False</FilesGlobal>
+    <FilesGlobal>True</FilesGlobal>
     <BatchMode>False</BatchMode>
     <AppendToDisk>False</AppendToDisk>
     <GenToDisk>False</GenToDisk>
     <BuildToPrgFile>True</BuildToPrgFile>
-    <d64Name />
+    <d64Name>.d64</d64Name>
     <DiskDirectoryName />
     <StartPrg>zzzzzzzzzzzz.zzzzzzzzz</StartPrg>
     <Comments>Port of the blue meanies</Comments>
     <Author />
     <Email />
-    <AutoLaunchName>Blue Meanie 64.prg</AutoLaunchName>
+    <AutoLaunchName>bluemeanie64.prg</AutoLaunchName>
     <NoSingleFileBuild>False</NoSingleFileBuild>
     <CreatedWithVersion>CBM prg Studio 4.5.0</CreatedWithVersion>
     <HasGitRepo>True</HasGitRepo>
@@ -26,7 +26,7 @@
     <UsingKickAssembler>False</UsingKickAssembler>
     <KickOutputFile />
     <KickConfigFile />
-    <KickGenDebugInfo>True</KickGenDebugInfo>
+    <KickGenDebugInfo>False</KickGenDebugInfo>
     <NewProjectStructure>True</NewProjectStructure>
     <Cartridge>
         <CrtBuildingCartridge>False</CrtBuildingCartridge>
@@ -48,9 +48,7 @@
         <PreBuildCommands />
         <PostBuildCommands />
     </BuildEvents>
-    <BuildList>
-        <FileName>86\Basic Files\LoadScreenRow.pbas</FileName>
-    </BuildList>
+    <BuildList />
     <DetermineBuildOrder>0</DetermineBuildOrder>
     <PaddingByte>0</PaddingByte>
     <!--Screen designer settings-->
@@ -94,9 +92,31 @@
             <FileOpen>False</FileOpen>
         </SourceFile>
         <SourceFile>
-            <Name>\Basic Files\Main1.pbas</Name>
+            <Name>\Misc Files\test_title_poke.pbas</Name>
             <PrgName />
             <FileType>15</FileType>
+            <IncludeInBuild>False</IncludeInBuild>
+            <Regions />
+            <Breakpoints />
+            <Bookmarks />
+            <Topmost>False</Topmost>
+            <FileOpen>False</FileOpen>
+        </SourceFile>
+        <SourceFile>
+            <Name>\Misc Files\test_title_print.pbas</Name>
+            <PrgName />
+            <FileType>15</FileType>
+            <IncludeInBuild>False</IncludeInBuild>
+            <Regions />
+            <Breakpoints />
+            <Bookmarks />
+            <Topmost>False</Topmost>
+            <FileOpen>False</FileOpen>
+        </SourceFile>
+        <SourceFile>
+            <Name>\Basic Files\80_setup.bas</Name>
+            <PrgName />
+            <FileType>1</FileType>
             <IncludeInBuild>True</IncludeInBuild>
             <Regions />
             <Breakpoints />
@@ -105,14 +125,91 @@
             <FileOpen>True</FileOpen>
         </SourceFile>
         <SourceFile>
-            <Name>\Basic Files\LoadScreenRow.pbas</Name>
+            <Name>\Basic Files\10_sub_title.bas</Name>
             <PrgName />
-            <FileType>15</FileType>
+            <FileType>1</FileType>
+            <IncludeInBuild>True</IncludeInBuild>
+            <Regions />
+            <Breakpoints />
+            <Bookmarks />
+            <Topmost>False</Topmost>
+            <FileOpen>True</FileOpen>
+        </SourceFile>
+        <SourceFile>
+            <Name>\Basic Files\90_main.bas</Name>
+            <PrgName />
+            <FileType>1</FileType>
             <IncludeInBuild>True</IncludeInBuild>
             <Regions />
             <Breakpoints />
             <Bookmarks />
             <Topmost>True</Topmost>
+            <FileOpen>True</FileOpen>
+        </SourceFile>
+        <SourceFile>
+            <Name>\Basic Files\20_sub_gamescn.bas</Name>
+            <PrgName />
+            <FileType>1</FileType>
+            <IncludeInBuild>True</IncludeInBuild>
+            <Regions />
+            <Breakpoints />
+            <Bookmarks />
+            <Topmost>False</Topmost>
+            <FileOpen>True</FileOpen>
+        </SourceFile>
+        <SourceFile>
+            <Name>\Screen Designs\GameScreen.sdd</Name>
+            <PrgName />
+            <FileType>9</FileType>
+            <IncludeInBuild>True</IncludeInBuild>
+            <Regions />
+            <Breakpoints />
+            <Bookmarks />
+            <Topmost>False</Topmost>
+            <FileOpen>False</FileOpen>
+        </SourceFile>
+        <SourceFile>
+            <Name>\Basic Files\30_sub_endscreen.bas</Name>
+            <PrgName />
+            <FileType>1</FileType>
+            <IncludeInBuild>True</IncludeInBuild>
+            <Regions />
+            <Breakpoints />
+            <Bookmarks />
+            <Topmost>False</Topmost>
+            <FileOpen>True</FileOpen>
+        </SourceFile>
+        <SourceFile>
+            <Name>\Basic Files\50_sub_delay.bas</Name>
+            <PrgName />
+            <FileType>1</FileType>
+            <IncludeInBuild>True</IncludeInBuild>
+            <Regions />
+            <Breakpoints />
+            <Bookmarks />
+            <Topmost>False</Topmost>
+            <FileOpen>True</FileOpen>
+        </SourceFile>
+        <SourceFile>
+            <Name>\Basic Files\00_Start.bas</Name>
+            <PrgName />
+            <FileType>1</FileType>
+            <IncludeInBuild>True</IncludeInBuild>
+            <Regions />
+            <Breakpoints />
+            <Bookmarks />
+            <Topmost>False</Topmost>
+            <FileOpen>True</FileOpen>
+        </SourceFile>
+        <SourceFile>
+            <Name>\Basic Files\60_sub_loading.bas</Name>
+            <PrgName />
+            <FileType>1</FileType>
+            <IncludeInBuild>True</IncludeInBuild>
+            <Regions />
+            <Breakpoints />
+            <Bookmarks />
+            <Topmost>False</Topmost>
             <FileOpen>True</FileOpen>
         </SourceFile>
     </SourceFiles>

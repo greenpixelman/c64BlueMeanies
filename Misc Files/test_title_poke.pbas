@@ -1,12 +1,14 @@
 
-REM --------------------BLUE MEANIES FROM OUTER SPACE 
-REM -------------------- PORT FROM VIC20
-REM
+!- *********************************************
+!- **** Test the title screen by POKE to screen locations
+!-
+!-
+!-
 REM SCREEN RAM = 1024 TO 2023
 REM 
 POKE 53280,3 : POKE 53281,1    : REM Border = Cyan, Background = White
 REM TURN OFF SCREEN
-REM POKE 53265, PEEK(53265) AND 239
+REM *******  POKE 53265, PEEK(53265) AND 239
 REM LOAD CHARS
 S = 1024 : C = 55296
 FOR I = 0 TO 999
@@ -20,8 +22,8 @@ READ VC : POKE C + I, VC
 NEXT I
 REM
 @GETKEY
-GET A$
-IF A$="" THEN GOTO @GETKEY
+GET ABC$
+IF ABC$="" THEN GOTO @GETKEY
 
 
 REM SCREEN 1 - 
