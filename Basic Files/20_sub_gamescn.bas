@@ -4,7 +4,7 @@
 !-- ****************************************
 !--
 2000 REM dim r2$( 26)
-2010 REM Game Scene
+!-- Game Scene *****************************
 2020 r2$(1) = "{reverse on}{green}{sh space}{sh space}{sh space}{sh space}{sh space}{reverse off}                              {reverse on}{sh space}{sh space}{sh space}{sh space}{sh space}"
 2030 r2$(2) = "{reverse off}{reverse on}{sh space}{sh space}{sh space}{sh space}{sh space}{reverse off}                              {reverse on}{sh space}{sh space}{sh space}{sh space}{sh space}"
 2040 r2$(3) = "{reverse off}{reverse on}{sh space}{sh space}{sh space}{sh space}{sh space}{reverse off}                              {reverse on}{sh space}{sh space}{sh space}{sh space}{sh space}"
@@ -29,15 +29,19 @@
 2230 r2$(22) = "{reverse off}{reverse on}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}"
 2240 r2$(23) = "{reverse off}     {light blue}energy=                            "
 2250 r2$(24) = "                      {yellow}good hit          "
-2260 r2$(25) = "     {purple}score =                            "
-2270 POKE 53280,0: POKE 53281,0  : REM Set border=green, background=black
-2272 REM **************** Turn off screen during loading
+2260 r2$(25) = "     {purple}score =    "
+
+!-- Set border=green, background=black
+2270 POKE 53280,0: POKE 53281,0 
+!-- **************** Turn off screen during loading
 2275 POKE 53265,PEEK(53265) AND 239
-2280 PRINT CHR$(147): REM CLEAR SCREEN
-2282 REM Loop the array to print screen
+!-- Clear screen
+2280 PRINT CHR$(147)
+
+!-- Loop the array to print screen
 2285 FOR I=1 TO 25
 2290    PRINT r2$(I);
 2295 NEXT I
-2298 REM **************** Turn Screen back on
+!-- **************** Turn Screen back on
 2300 POKE 53265,PEEK(53265) OR 16
 2310 return 

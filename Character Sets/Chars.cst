@@ -34,6 +34,19 @@
     </chardata>
   </character>
   <character>
+    <charcode>121</charcode>
+    <chardata>
+      <data>0</data>
+      <data>0</data>
+      <data>0</data>
+      <data>0</data>
+      <data>0</data>
+      <data>255</data>
+      <data>255</data>
+      <data>255</data>
+    </chardata>
+  </character>
+  <character>
     <charcode>122</charcode>
     <chardata>
       <data>255</data>
@@ -96,6 +109,19 @@
       <data>15</data>
       <data>15</data>
       <data>15</data>
+    </chardata>
+  </character>
+  <character>
+    <charcode>250</charcode>
+    <chardata>
+      <data>252</data>
+      <data>252</data>
+      <data>252</data>
+      <data>252</data>
+      <data>252</data>
+      <data>252</data>
+      <data>0</data>
+      <data>0</data>
     </chardata>
   </character>
 </charset>
