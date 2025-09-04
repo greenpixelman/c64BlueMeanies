@@ -46,7 +46,9 @@
         <PostBuildEnabled>False</PostBuildEnabled>
         <RunPostBuildAlways>False</RunPostBuildAlways>
         <PreBuildCommands />
-        <PostBuildCommands />
+        <PostBuildCommands>
+            <PostBuildCommand>[DOSCMD]cd C:\Users\Paul\source\basicv2-master\dist &amp;amp;amp;amp;&amp;amp;amp;amp; c: &amp;amp;amp;amp;&amp;amp;amp;amp; mospeed.cmd "C:\Users\Paul\source\c64Blue Meanie 64\bluemeanie64.prg" -vice=C:\Users\Paul\source\GTK3VICE-3.8-win64\bin\x64sc.exe</PostBuildCommand>
+        </PostBuildCommands>
     </BuildEvents>
     <BuildList />
     <DetermineBuildOrder>0</DetermineBuildOrder>
@@ -140,7 +142,24 @@
             <PrgName />
             <FileType>1</FileType>
             <IncludeInBuild>True</IncludeInBuild>
-            <Regions />
+            <Regions>
+                <Region>46</Region>
+                <Region>59</Region>
+                <Region>61</Region>
+                <Region>71</Region>
+                <Region>73</Region>
+                <Region>92</Region>
+                <Region>94</Region>
+                <Region>120</Region>
+                <Region>122</Region>
+                <Region>139</Region>
+                <Region>141</Region>
+                <Region>152</Region>
+                <Region>154</Region>
+                <Region>165</Region>
+                <Region>167</Region>
+                <Region>176</Region>
+            </Regions>
             <Breakpoints />
             <Bookmarks />
             <Topmost>True</Topmost>

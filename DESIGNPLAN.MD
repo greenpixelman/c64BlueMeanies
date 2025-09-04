@@ -12,8 +12,9 @@ main.bas
 ## *** Game Play ***
 Start with 1000 energy for laser shots.
 Laser shot -50 energy.
-if < -150 energy to message 'NO ENERGY'
+if energy=0 message 'NO ENERGY'
 End game after 20 meanies shot and increase meanie level
+**adjust to smaller number 
 
 
 ## *** Modules ***

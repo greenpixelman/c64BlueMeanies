@@ -31,8 +31,15 @@ https://www.microheaven.com/FastC64Basic/tips.html
 https://trello.com/invite/b/67fac28a43728da9bc768459/ATTIb784a56d634b4fa16facf26947309c3fA25E5072/blue-meanies-from-output-space64
 
 
-## Thanks
 
+#BASIC compiler
+Tested with MoSpeed BASIC compiler:
+https://www.c64-wiki.com/wiki/MOSpeed
+https://github.com/EgonOlsen71/basicv2
+
+
+
+## Thanks
 Thanks to my family for all the support and Special thanks to Erich, Jeff, Fred and so many more for getting me back into the Commodore 64!
 
 

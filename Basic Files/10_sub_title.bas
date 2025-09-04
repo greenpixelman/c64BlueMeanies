@@ -5,8 +5,10 @@
 !-- ****************************************
 !--
 1000 REM DIM row$(26)
-1010 REM Setup all characters from the TitleScreen.sdd file
-1020 REM **************************************************
+
+!-- **************************************************
+!-- Setup all characters from the TitleScreen.sdd file
+!-- **************************************************
 1040 row$(1) = "{reverse on}{cyan}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}"
 1045 row$(2) = "{reverse off}{reverse on}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}"
 1050 row$(3) = "{reverse off}{reverse on}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}"
@@ -36,15 +38,14 @@
 1170 POKE 53280,3:POKE 53281,1  : REM Set border=cyan, background=white
 1172 REM **************** Turn off screen during loading
 1175 POKE 53265,PEEK(53265) AND 239
-1180 PRINT CHR$(147): REM CLEAR SCREEN
-1182 REM Loop the array to print screen
+!-- Clear screen
+1180 PRINT CHR$(147)
+!-- Loop the array to print screen
 1185 FOR I=1 TO 25
 1190    PRINT row$(I);
-1195 NEXT I
-1198 REM **************** Turn Screen back on
+1195 NEXT
+!-- Turn scree back on
 1200 POKE 53265,PEEK(53265) OR 16
-1205 REM
-1210 S = 1024+999 : C = 55296+999
-1215 POKE S, 224
-1220 POKE C, 3
+1215 POKE 1024+999, 224
+1220 POKE 55296+999, 3
 1255 RETURN
