@@ -13,9 +13,9 @@
 
 #region "Setup the variables"
 !-- Screen Characters -- TODO update for custom characters
-100 MC=77:REM 186
-105 SC=83:REM 187
-106 LC=195:
+100 MC=186:REM 186; CHR$(250)
+105 SC=187:REM 187
+106 LC=195
 
 !-- Energy Level -
 110 EG=1000
@@ -41,8 +41,10 @@
 !-- C1 and C2 are the Columns for the Monster
 325 C1=INT((20 - 8 + 1) * RND(1)) + 8
 326 C2=INT((32 - 24 + 1) * RND(1)) + 24
+
 !-- C3 - refuel ship column
 327 C3=INT((22 - 14 + 1) * RND(1)) + 14:
+
 !-- C4 = laser column
 328 C4=0
 
@@ -79,9 +81,9 @@
 811 DIM r2$(26)
 812 DIM L1(12): DIM L2(12)
 
-815 DATA 255,189,153,255,255,195,189,255 : REM CHARACTER 122 - Meanie
-816 DATA 60,126,255,219,255,126,36,36 : REM CHARACTER 123 - Ship
-
+815 DATA 255,189,153,255,255,195,189,255 : REM CHARACTER 186 - Meanie
+816 DATA 60,126,255,219,255,126,36,36 : REM CHARACTER 187 - Ship
+817 DATA 64,153,119,145,102,17,173,66 : REM CHARACTER 188 - Hit
 #endregion
 
 

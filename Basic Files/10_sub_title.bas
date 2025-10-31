@@ -4,7 +4,8 @@
 !-- *     WAITS FOR PLAYER TO BEGIN GAME
 !-- ****************************************
 !--
-1000 REM DIM row$(26)
+1000 PRINT ""
+1005 REM DIM row$(26)
 
 !-- **************************************************
 !-- Setup all characters from the TitleScreen.sdd file
@@ -36,7 +37,8 @@
 1160 row$(25) = "{reverse off}{reverse on}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}"
 1165 row$(25) = "{reverse off}{reverse on}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}{sh space}"
 1170 POKE 53280,3:POKE 53281,1  : REM Set border=cyan, background=white
-1172 REM **************** Turn off screen during loading
+
+!-- **************** Turn off screen during loading
 1175 POKE 53265,PEEK(53265) AND 239
 !-- Clear screen
 1180 PRINT CHR$(147)
@@ -44,8 +46,53 @@
 1185 FOR I=1 TO 25
 1190    PRINT row$(I);
 1195 NEXT
-!-- Turn scree back on
+!-- Turn screen back on
 1200 POKE 53265,PEEK(53265) OR 16
 1215 POKE 1024+999, 224
 1220 POKE 55296+999, 3
 1255 RETURN
+
+
+1500 REM SCREEN 2 - Instructions
+1510 row$(1) = "{reverse on}{blue}                                        "
+1515 row$(2) = "{reverse off}{reverse on}              {blue}instructions{blue}              "
+1520 row$(3) = "{reverse off}{reverse on}                                        "
+1525 row$(4) = "{reverse off}{reverse on}    {reverse off}                                 {reverse on}   "
+1530 row$(5) = "{reverse off}{reverse on}    {reverse off}                                 {reverse on}   "
+1535 row$(6) = "{reverse off}{reverse on}    {reverse off} {reverse on}{blue}the meanies are coming!{reverse off}         {reverse on}{blue}   "
+1540 row$(7) = "{reverse off}{reverse on}    {reverse off}                                 {reverse on}   "
+1545 row$(8) = "{reverse off}{reverse on}    {reverse off} {blue}blue meanies are falling toward {reverse on}{blue}   "
+1550 row$(9) = "{reverse off}{reverse on}    {reverse off} {blue}your starbase like rain. trying {reverse on}{blue}   "
+1555 row$(10) = "{reverse off}{reverse on}    {reverse off} {blue}to hit your laser cannons!      {reverse on}{blue}   "
+1560 row$(11) = "{reverse off}{reverse on}    {reverse off}                                 {reverse on}   "
+1565 row$(12) = "{reverse off}{reverse on}    {reverse off} {blue}score as many points as you can {reverse on}{blue}   "
+1570 row$(13) = "{reverse off}{reverse on}    {reverse off} {blue}by hiting the meanies with      {reverse on}{blue}   "
+1575 row$(14) = "{reverse off}{reverse on}    {reverse off} {blue}your lasers!                    {reverse on}{blue}   "
+1580 row$(15) = "{reverse off}{reverse on}    {reverse off}                                 {reverse on}   "
+1585 row$(16) = "{reverse off}{reverse on}    {reverse off}                                 {reverse on}   "
+1590 row$(17) = "{reverse off}{reverse on}    {reverse off} {reverse on}{cyan}laser controls:{reverse off}                 {reverse on}{blue}   "
+1595 row$(18) = "{reverse off}{reverse on}    {reverse off}                                 {reverse on}   "
+1600 row$(19) = "{reverse off}{reverse on}    {reverse off} {cyan}q, a, z - fire left side        {reverse on}{blue}   "
+1605 row$(20) = "{reverse off}{reverse on}    {reverse off}                                 {reverse on}   "
+1610 row$(21) = "{reverse off}{reverse on}    {reverse off} {cyan}e, d, c - fire right side       {reverse on}{blue}   "
+1615 row$(22) = "{reverse off}{reverse on}    {reverse off}                                 {reverse on}   "
+1620 row$(23) = "{reverse off}{reverse on}    {reverse off}                                 {reverse on}   "
+1625 row$(24) = "{reverse off}{reverse on}    {reverse off}           {reverse on}{blue}hit any key{reverse off}           {reverse on}{blue}   "
+1630 row$(25) = "{reverse off}{reverse on}    {reverse off}                                 {reverse on}   "
+
+!-- **************** Turn off screen during loading
+1640 POKE 53265,PEEK(53265) AND 239
+!-- Clear screen
+1650 PRINT CHR$(147)
+!-- Loop the array to print screen
+1655 FOR I=1 TO 24
+1660    PRINT row$(I);
+1670 NEXT
+!-- Turn screen back on
+1675 POKE 53265,PEEK(53265) OR 16
+
+!-- get space key to continue
+1700 GET A$
+1705 IF A$<>" " THEN GOTO 1700
+
+1755 RETURN
