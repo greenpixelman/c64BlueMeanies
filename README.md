@@ -38,6 +38,30 @@ https://www.c64-wiki.com/wiki/MOSpeed
 https://github.com/EgonOlsen71/basicv2
 
 
+##Batch file:  (move vars to $9000 after the Screen and custom chars, to give more room for program)
+C:
+Cd c:\PixelMan\basicv2-master\dist
+call mospeed.cmd "C:\PixelMan\source\c64Blue Meanie 64\bluemeanie64.prg" -vice=C:\PixelMan\GTK3VICE-3.8-win64\bin\x64sc.exe /compactlevel=5 /varstart=$9000
+Cd c:\PixelMan
+
+
+
+mospeed.cmd "C:\PixelMan\source\c64Blue Meanie 64\bluemeanie64.prg" -vice=C:\PixelMan\GTK3VICE-3.8-win64\bin\x64sc.exe /compactlevel=5 /varstart=$9000 /target="C:\PixelMan\source\c64Blue Meanie 64\+bluemeanie64.prg"
+
+
+
+
+
+
+## Commodore 64 VICII -Banks
+VIC chip can access 16k at a time, controlled by 53272. 
+So this is in 4 different banks:
+
+0 = $0000-$3FFF (default)
+1 = $4000-$7FFF
+2 = $8000-$BFFF 
+3 = $C000-$FFFF
+
 
 ## Thanks
 Thanks to my family for all the support and Special thanks to Erich, Jeff, Fred and so many more for getting me back into the Commodore 64!

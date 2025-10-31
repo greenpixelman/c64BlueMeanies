@@ -19,11 +19,17 @@
 !-- Setup the Sound Var
 9016 VV=54272
 9017 POKE 54296,15: POKE 54295,0
+9018 P1=1:P2=1
 
 !-- Update the Level for the hold time per cycle to display the movement
-9020 IF ML=1 THEN HVIEW = 3:REM NORMAL
-9025 IF ML>1 THEN HVIEW = 2:REM FAST
-9026 IF ML>2 THEN HVIEW = 1:REM VERY FAST
+!-- P1, Q1 and Q2 adjust the Random Column locations to start Meanies
+!-- closer edge, the easier they will hit lasers
+9020 IF ML=1 THEN HVIEW = 3:P1=1:Q1=11:Q2=27:REM NORMAL
+9025 IF ML>1 THEN HVIEW = 2:P1=2:Q1=8:Q2=30:REM FAST
+9026 IF ML>2 THEN HVIEW = 1:P1=3:Q1=7:Q2=31:REM VERY FAST
+
+!-- Save the H Refresh for the Monsters
+9027 HSAV = HVIEW
 
 !-- Set the Loop
 9030 HLOOP =0
@@ -31,12 +37,8 @@
 !-- reset the total Meanie hits
 9035 MH =0
 
-!-- TODO Set the total number of Meanies to hit before Winning
-9036 WG = 1
-
-!-- Force the ship to refuel
-!-- 9037 EG=0 
-
+!-- Set the total number of Meanies to hit before Winning  (> 4)  Total 5
+9036 WG = 4
 
 !-- ***************************************************************************
 !-- Game Play Logic...
@@ -48,9 +50,10 @@
 !-- ##################################
 !-- add time check for speed
 9051 TI$="000000"
-9052 IF O4<>0 THEN LP=LP+1
+!-- If Laser is active, increase position and freeze the Monsters (like original game)
+9052 IF O4<>0 THEN LP=LP+1::HVIEW=99
 !-- Clear the message
-9053 MS$="           "
+9053 IF HLOOP > 2 THEN MS$="           "
 
 !-- clear the flag for the Hit of the Meanie 1 and 2
 9055 T1=0:T2=0:IF R3>0 THEN DR=1
@@ -73,8 +76,10 @@
 
 #region "Check for a Hit"
 !-- If we made a hit with a bit of offset
-9120 IF (C4=C1 OR C4=C1-1) AND (R4=R1 OR R4=R1-1) THEN PRINTh$;left$(x$,C3);left$(y$,R3);" ";h$;left$(x$,C4);left$(y$,R4);"{yellow}";CHR$(42);:R1=0:O4=9:SK=SK+100:MH=MH+1
-9125 IF (C4=C2 OR C4=C2-1) AND (R4=R2 OR R4=R2-1) THEN PRINTh$;left$(x$,C4);left$(y$,R4);" ";h$;left$(x$,C4);left$(y$,R4);"{yellow}";CHR$(42);:R2=0:O4=9:SK=SK+100:MH=MH+1
+9120 REM IF (C4=C1 OR C4=C1-1) AND (R4=R1 OR R4=R1-1) THEN PRINTh$;left$(x$,C3);left$(y$,R3);" ";h$;left$(x$,C4);left$(y$,R4);"{yellow}";CHR$(42);:R1=0:O4=9:SK=SK+100:MH=MH+1
+9121 REM IF (C4=C2 OR C4=C2-1) AND (R4=R2 OR R4=R2-1) THEN PRINTh$;left$(x$,C4);left$(y$,R4);" ";h$;left$(x$,C4);left$(y$,R4);"{yellow}";CHR$(42);:R2=0:O4=9:SK=SK+100:MH=MH+1
+9123 IF (C4=C1) AND (R4=R1) THEN PRINTh$;left$(x$,C3);left$(y$,R3);" ";h$;left$(x$,C4);left$(y$,R4);"{yellow}";CHR$(188);:R1=0:O4=9:SK=SK+100:MH=MH+1
+9125 IF (C4=C2) AND (R4=R2) THEN PRINTh$;left$(x$,C4);left$(y$,R4);" ";h$;left$(x$,C4);left$(y$,R4);"{yellow}";CHR$(188);:R2=0:O4=9:SK=SK+100:MH=MH+1
 
 !--- Check if Laser cannon has been hit!
 9201 IF (R1=K1 OR R1=K2 OR R1=K3) AND (C1>3 AND C1<6) THEN L1(R1-3)=0:T1=TH:PRINT h$;left$(x$,4);left$(y$,R1);"   ";
@@ -88,8 +93,7 @@
 9210 IF T1=1 THEN MS$="{red}base hit!":PRINT"{left}{left}{left}   "
 9211 IF T2=1 THEN MS$="{red}base hit!":PRINT"{left}{left}{left}   "
 
-!-- Clear the hit character
-9212 IF O4=9 THEN PRINTh$;left$(x$,C4);left$(y$,R4);" ":O4=0
+
 #endregion
 
 #region "Move the characters in the game"
@@ -97,26 +101,33 @@
 
 !--- Move the Monster down - Random between 1 and 2 and shift the column 1 to -2
 9215 IF HLOOP = HVIEW THEN TM = INT((2 - 1 + 1) * RND(1)) + 1
-9216 IF HLOOP = HVIEW THEN R1 = R1 + TM:TT= INT(3 * RND(1) - 2)
+9216 IF HLOOP = HVIEW THEN R1 = R1 + TM:TT= INT(P1 * RND(1) - 2):IF ML < 2 AND R1/2 = INT(R1/2) THEN TT=0
 9220 IF C1>BL AND C1<BR AND HLOOP = HVIEW THEN C1=C1 + TT
+
 !--- Move the Monster down - Random between 1 and 2 and shift the column 0-1
-9230 IF HLOOP = HVIEW THEN R2 = R2 + TM:TT= INT(2 * RND(1) +1 )
+9230 IF HLOOP = HVIEW THEN R2 = R2 + TM:TT= INT(P2 * RND(1) +1 ):IF ML < 2 AND R2/2 = INT(R2/2) THEN TT=0
 9240 IF C2>BL AND C2<BR AND HLOOP = HVIEW THEN C2=C2 + TT
-9241 REM POKE 781,23:POKE 782,22:POKE 783,0:SYS 65520:PRINT chr$(158);MS$
 
 !-- Refuel ship position 
-9250 IF DR=1 THEN R3 = R3 + 1
+9245 IF DR=1 THEN R3 = R3 + 1
+
+!-- Clear the hit character - turn off laser and unfreeze Monster
+9250 IF O4=9 THEN PRINTh$;left$(x$,C4);left$(y$,R4);" ":O4=0:HVIEW=HSAV::HLOOP=HVIEW
 
 !-- Laser increase position 
 9251 IF O4<>0 THEN C4 = C4 + O4
-!-- turn off if out ofbounds
-9252 IF O4<>0 AND C4<7 OR C4 > 32 THEN O4=0
-!-- Max distance for the laser 
-9253 IF O4<>0 AND LP>8 THEN O4=0:LP=0
+!-- turn off laser if out of bounds
+9252 IF O4<>0 AND C4<7 OR C4 > 32 THEN O4=0:HVIEW=HSAV:HLOOP=HVIEW
+!-- turn off laser - Max distance for the laser 
+9253 IF O4<>0 AND LP>12 THEN O4=0:LP=0:HVIEW=HSAV:HLOOP=HVIEW
 
 !-- If Hit, then restart 
-9260 IF T1=TH OR R1>19 AND HLOOP = HVIEW THEN R1 = 0:C1=INT((20 - 9 + 1) * RND(1)) + 9
-9262 IF T2=TH OR R2>19 AND HLOOP = HVIEW THEN R2 = 0:C2=INT((32 - 22 + 1) * RND(1)) + 22
+!--                                                          Random 15 and 22
+9260 IF T1=TH OR R1>19 AND HLOOP = HVIEW THEN R1 = 0:C1=INT((20 - Q1 + 1) * RND(1) + Q1)
+!--                                                          Random 18 and 27
+9262 IF T2=TH OR R2>19 AND HLOOP = HVIEW THEN R2 = 0:C2=INT((Q2 - 18 + 1) * RND(1) + 18)
+
+!-- Refuel ship landed!
 9263 IF R3>18 THEN R3=0:F1=F1+200:MS$="{yellow}refueled!":DR=0:EG=EG+150
 #endregion
 
@@ -126,38 +137,34 @@
 9277 IF MS$<>"" THEN PRINT h$;left$(x$,12);left$(y$,22);"{light blue}     {left}{left}{left}{left}{left}";EG;
 9278 IF MS$<>"" THEN PRINT h$;left$(x$,12);left$(y$,24);"{purple}";SK;"  ";
 
-!-- Testing to show speed difference between print and sys
-!-- **************** from Compute's "Mapping the 64
-9285 REM IF MS$<>"" THEN POKE 782,22:POKE 781,23:POKE 783,0:SYS 65520:PRINT MS$;
-9287 REM IF MS$<>"" THEN POKE 782,12:POKE 781,22:POKE 783,0:SYS 65520:PRINT "{light blue}     {left}{left}{left}{left}{left}";EG;
-9288 REM IF MS$<>"" THEN POKE 782,12:POKE 781,24:POKE 783,0:SYS 65520:PRINT "{purple}";SK;"  ";
-
 !-- ###################################################
 !-- Show how long it takes to cycle the game loop
 !-- Debug testing only - display the jiffy
-9295 PRINT h$;left$(x$,22);left$(y$,24);"{cyan}[debug]        {left}{left}{left}{left}{left}{left}{left}{left}";TI;"jifs";
+9280 REM PRINT h$;left$(x$,22);left$(y$,24);"{cyan}[debug]        {left}{left}{left}{left}{left}{left}{left}{left}";TI;"jifs";
+9290 PRINT h$;left$(x$,22);left$(y$,24);"{cyan}hits        {left}{left}{left}{left}{left}{left}{left}{left}";MH;
 
 #endregion
 
 #region "Sound and Update the characters on screen"
 !-- Make the Sound *******************
 9300 IF HLOOP = HVIEW THEN POKE VV+6,0:POKE VV+5,31:POKE VV+1,180:POKE VV+4,33
-!--- draw the Monster at the position
-9320 IF HLOOP = HVIEW THEN PRINT h$;left$(x$,C1);left$(y$,R1);"{light blue}";CHR$(18);CHR$(MC);CHR$(146);
-9325 IF HLOOP = HVIEW THEN PRINT h$;left$(x$,C2);left$(y$,R2);"{light blue}";CHR$(18);CHR$(MC);CHR$(146);
+!--- draw the Monster at the position  (removed CHR$(18) )
+9320 IF HLOOP = HVIEW AND R1>0 THEN PRINT h$;left$(x$,C1);left$(y$,R1);"{light blue}";CHR$(MC);CHR$(146);
+9325 IF HLOOP = HVIEW AND R2>0 THEN PRINT h$;left$(x$,C2);left$(y$,R2);"{light blue}";CHR$(MC);CHR$(146);
+
 !-- Refuel ship
-9326 IF DR=1 THEN PRINT h$;left$(x$,C3);left$(y$,R3);"{green}";CHR$(18);CHR$(SC);CHR$(146);
+9326 IF DR=1 THEN PRINT h$;left$(x$,C3);left$(y$,R3);"{green}";;CHR$(SC);CHR$(146);
 !-- Laser
-9327 IF O4<>0 THEN PRINTh$;left$(x$,C4);left$(y$,R4);"{yellow}";CHR$(LC);
+9327 IF O4<>0 THEN PRINT h$;left$(x$,C4);left$(y$,R4);"{yellow}";CHR$(LC);
 
 #endregion
 
 #region "Prompt for the key"
 !-- Prompt for the key to activate laser..
 9500 GET A$
-9510 IF A$="q" and EG> 0 AND O4=0 AND L1(1)=1 THEN R4=4:C4=8:O4=1:EG=EG-50
-9520 IF A$="a" and EG> 0 AND O4=0 AND L1(6)=1 THEN R4=9:C4=8:O4=1:EG=EG-50
-9530 IF A$="z" and EG> 0 AND O4=0 AND L1(11)=1 THEN R4=14:C4=8:O4=1:EG=EG-50
+9510 IF A$="q" and EG> 0 AND O4=0 AND L1(1)=1 THEN R4=4:C4=7:O4=1:EG=EG-50
+9520 IF A$="a" and EG> 0 AND O4=0 AND L1(6)=1 THEN R4=9:C4=7:O4=1:EG=EG-50
+9530 IF A$="z" and EG> 0 AND O4=0 AND L1(11)=1 THEN R4=14:C4=7:O4=1:EG=EG-50
 9540 IF A$="e" and EG> 0 AND O4=0 AND L2(1)=1 THEN R4=4:C4=31:O4=-1:EG=EG-50
 9550 IF A$="d" and EG> 0 AND O4=0 AND L2(6)=1 THEN R4=9:C4=31:O4=-1:EG=EG-50
 9560 IF A$="c" and EG> 0 AND O4=0 AND L2(11)=1 THEN R4=14:C4=31:O4=-1:EG=EG-50
